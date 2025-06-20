@@ -3,7 +3,7 @@ name: Daily Email Sender
 on:
   schedule:
     - cron: "0 6 * * *"  # Runs daily at 6:00 AM UTC (~8:00 AM Rwanda time)
-  workflow_dispatch:       # Allows manual trigger from GitHub UI
+  workflow_dispatch:
 
 jobs:
   send_email:
@@ -21,13 +21,12 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install --upgrade pip
-          pip install schedule  # Required module
-          # Add more here if needed, e.g.:
+          pip install schedule
+          # Add more dependencies below as needed
           # pip install yagmail pandas openpyxl
 
       - name: Run Email Script
         env:
           EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
         run: python send_email.py
