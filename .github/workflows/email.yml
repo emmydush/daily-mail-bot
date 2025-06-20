@@ -19,9 +19,9 @@ jobs:
           python-version: '3.x'
 
       - name: Install Dependencies
-  run: |
-    pip install --upgrade pip
-    pip install schedule
+        run: |
+          pip install --upgrade pip
+          pip install schedule
 
       - name: Run Email Script
         env:
