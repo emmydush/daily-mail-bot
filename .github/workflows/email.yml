@@ -2,8 +2,8 @@ name: Daily Email Sender
 
 on:
   schedule:
-    - cron: "0 6 * * *"  # Runs daily at 6:00 AM UTC (~8:00 AM Rwanda time)
-  workflow_dispatch:     # allows manual trigger
+    - cron: "0 6 * * *"  # Daily at 6 AM UTC (~8 AM Rwanda)
+  workflow_dispatch:
 
 jobs:
   send_email:
@@ -18,7 +18,9 @@ jobs:
           python-version: '3.x'
 
       - name: Install Dependencies
-        run: pip install --upgrade pip
+        run: |
+          pip install --upgrade pip
+          pip install pandas yagmail openpyxl  # add your required packages here
 
       - name: Send Email
         env:
