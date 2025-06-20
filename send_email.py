@@ -5,10 +5,8 @@ import schedule
 import time
 import os
 
-
 EMAIL_ADDRESS = "emmychris915@gmail.com"       
 EMAIL_PASSWORD = "mjzh konc tcpj htdp"       
-
 
 recipients = [
     "kubwimanatheophile02@gmail.com",
@@ -16,7 +14,6 @@ recipients = [
     "basesayosejmv@gmail.com",
     "aishimwe394@gmail.com",
 ]
-
 
 def send_payment_reminders():
     for recipient in recipients:
@@ -46,10 +43,9 @@ def send_payment_reminders():
 if __name__ == "__main__":
     send_payment_reminders()  
 
-
 schedule.every().day.at("08:00").do(send_payment_reminders)
 
 print("🔄 Scheduler running... Will send to 10 people daily at 08:00 AM")
 while True:
     schedule.run_pending()
-    time.sleep(60)                                                                               
+    time.sleep(60)   
