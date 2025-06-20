@@ -21,12 +21,11 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install --upgrade pip
-          pip install schedule
-          # Add more dependencies below as needed
-          # pip install yagmail pandas openpyxl
+          pip install -r requirements.txt
 
       - name: Run Email Script
         env:
           EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
         run: python send_email.py
